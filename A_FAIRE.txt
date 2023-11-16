@@ -1,0 +1,9 @@
+1. Modifier une Todo
+    -> 1.1 boutton pour dire que je veux modifier cette Todo
+    -> 1.2 recupere le text de mon todo pour le mettre dans la valeur de l'input (dans le form)
+
+
+
+    
+2. Ajouter un isCompleted pour une Todo (done)
+3. Ajouter un filter (fini, non fini)

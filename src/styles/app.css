@@ -1,0 +1,11 @@
+.tasks {
+    border: solid 2px black;
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0;
+}
