@@ -52,7 +52,7 @@ function App() {
 
         {/* Affiche la div uniquement quand je veux voir les tasks fini */}
         <div>
-          {isVisible ? <TodoCompletd todos={todos} /> : ""}
+          {isVisible ? <TodoCompletd todos={todos} /> : "Vous n'avez pas encore achevé de task"}
         </div>
       </div>
     </div>
