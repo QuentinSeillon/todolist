@@ -9,3 +9,10 @@
     position: relative;
     top: 0;
 }
+
+.btn-tasks {
+    padding: 1px;
+    position: absolute;
+    top: 0;
+    right: 0px
+}

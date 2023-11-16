@@ -13,24 +13,14 @@ function TodoList({ todos, setTodos,toggleCompleted }) {
 
   const incompletedTodos = todos.filter((task) => !task.isCompleted)
 
-  /* const newTodo = todos.map((task) => (
-    <TodoItems
-    {...task}
-    key={task.id}
-    supprimerTask={supprimerTask}
-    toggleCompleted={toggleCompleted}
-  />
-  ));
-
-  return <ul>{newTodo}</ul>; */
   return (
     <ul>
       {incompletedTodos.map((task) => (
         <TodoItems
-        {...task}
-        key={task.id}
-        supprimerTask={supprimerTask}
-        toggleCompleted={toggleCompleted}
+          {...task}
+          key={task.id}
+          supprimerTask={supprimerTask}
+          toggleCompleted={toggleCompleted}
         />
       ))}
     </ul>
