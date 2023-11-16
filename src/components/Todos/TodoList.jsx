@@ -1,33 +1,40 @@
 import React from "react";
 import TodoItems from "./TodoItems";
 
-function TodoList({ todos, setTodos, setTodosCompleted }) {
+function TodoList({ todos, setTodos,toggleCompleted }) {
+
+  console.log(todos);
+
   function supprimerTask(id) {
     const filteredTodos = todos.filter((todo) => todo.id !== id);
 
     setTodos(filteredTodos);
   }
 
-  function taskComplet(task) {
-    const updatedTodos = todos.filter((todo) => todo.id !== task.id);
-  
-    setTodos(updatedTodos);
-    
-    setTodosCompleted((todosCompleted) => [...todosCompleted, task]);
-  }
+  const incompletedTodos = todos.filter((task) => !task.isCompleted)
 
-  
-
-  const newTodo = todos.map((task) => (
+  /* const newTodo = todos.map((task) => (
     <TodoItems
-      {...task}
-      key={task.id}
-      supprimerTask={supprimerTask}
-      taskComplet={taskComplet}
-    />
+    {...task}
+    key={task.id}
+    supprimerTask={supprimerTask}
+    toggleCompleted={toggleCompleted}
+  />
   ));
 
-  return <ul>{newTodo}</ul>;
+  return <ul>{newTodo}</ul>; */
+  return (
+    <ul>
+      {incompletedTodos.map((task) => (
+        <TodoItems
+        {...task}
+        key={task.id}
+        supprimerTask={supprimerTask}
+        toggleCompleted={toggleCompleted}
+        />
+      ))}
+    </ul>
+  )
 }
 
 export default TodoList;

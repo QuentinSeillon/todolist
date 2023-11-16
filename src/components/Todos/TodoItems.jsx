@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-import TodoUpdate from "./TodoUpdate";
 
-function TodoItems({ text, id, supprimerTask, taskComplet }) {
+function TodoItems({ text, id, supprimerTask, toggleCompleted }) {
+
+  function completed() {
+    toggleCompleted(id);
+  }
 
   return (
     <li>
       {text}
-      <button onClick={() => taskComplet({ id, text })}>
+      <button onClick={completed}>
         <Icon icon="material-symbols:check-circle" />
       </button>
       <button onClick={() => supprimerTask(id)}>

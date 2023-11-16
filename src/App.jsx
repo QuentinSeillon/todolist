@@ -2,28 +2,28 @@ import React, { useState } from "react";
 import TodoForm from "./components/Todos/TodoForm";
 import TodoList from "./components/Todos/TodoList";
 import "./styles/app.css";
-import TodoCompletd from "./components/Todos/TodoCompletd";
 
 const tasksList = [
   {
     id: 1,
     text: "blablabla",
+    isCompleted: false
   },
 ];
 
 function App() {
   const [todos, setTodos] = useState(tasksList);
 
-  const [todosCompleted, setTodosCompleted] = useState([]);
-
   function getValue(task) {
     setTodos((prevTodos) => [...prevTodos, task]);
   }
 
-  const [isVisible, setIsVisible] = useState(false);
-
-  function toggleVisibilityTodoCompleted() {
-    setIsVisible(!isVisible);
+  function toggleCompleted(taskId) {
+    setTodos((prevTodos) =>
+      prevTodos.map((task) =>
+        task.id === taskId ? { ...task, isCompleted: !task.isCompleted } : task
+      )
+    );
   }
 
 
@@ -35,10 +35,8 @@ function App() {
         <TodoList
           todos={todos}
           setTodos={setTodos}
-          setTodosCompleted={setTodosCompleted}
+          toggleCompleted={toggleCompleted}
         />
-        <button onClick={toggleVisibilityTodoCompleted}>Affiche les tasks completé</button>
-        {isVisible ? <TodoCompletd todosCompleted={todosCompleted} /> : ""}
       </div>
     </div>
   );

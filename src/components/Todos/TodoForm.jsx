@@ -9,7 +9,8 @@ function TodoForm({getValue}) {
 
         const newValue = {
             id: Date.now(),
-            text: inputValue
+            text: inputValue,
+            isCompleted: false
         };
 
         
